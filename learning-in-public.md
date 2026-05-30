@@ -3,6 +3,8 @@
 Most people learn in private: they consume content but don't tell
 anyone about it. There's nothing wrong with it.
 
+
+
 But we want to encourage you to document your progress and
 share it publicly on social media.
 
