@@ -1,3 +1,9 @@
+# MLOps Zoomcamp
+
+<!-- repository-summary -->
+Course materials and exercises for productionizing machine learning services through training, deployment, orchestration, and monitoring.
+<!-- /repository-summary -->
+
 <p align="center">
   <img width="80%" src="images/banner-2025.jpg" alt="MLOps Zoomcamp">
 </p>
