@@ -1,5 +1,51 @@
 # MLOps Zoomcamp
 
+<!-- project-guide:start -->
+## Project guide
+
+[Project architecture](PROJECT_ARCHITECTURE.md) · [Interview questions and answers](INTERVIEW_QA.md)
+
+Use the architecture document for the component diagram, implementation boundaries, and verification entry points. The interview guide includes source-backed answers and project walkthroughs.
+
+### Implementation map
+
+| Component | Responsibility |
+| --- | --- |
+| [`04-deployment/web-service-mlflow/predict.py`](04-deployment/web-service-mlflow/predict.py) | HTTP handlers: `ROUTE /predict` |
+| [`04-deployment/web-service/predict.py`](04-deployment/web-service/predict.py) | HTTP handlers: `ROUTE /predict` |
+| [`cohorts/2022/05-monitoring/homework/prediction_service/app.py`](cohorts/2022/05-monitoring/homework/prediction_service/app.py) | HTTP handlers: `ROUTE /`, `ROUTE /predict-duration` |
+| [`cohorts/2023/03-orchestration/prefect/3.5/orchestrate_s3.py`](cohorts/2023/03-orchestration/prefect/3.5/orchestrate_s3.py) | Functions: `read_data`, `add_features`, `train_best_model`, `main_flow_s3` |
+| [`cohorts/2023/03-orchestration/prefect/3.6/orchestrate_s3.py`](cohorts/2023/03-orchestration/prefect/3.6/orchestrate_s3.py) | Functions: `read_data`, `add_features`, `train_best_model`, `main_flow_s3` |
+| [`cohorts/2023/02-experiment-tracking/homework-wandb/preprocess_data.py`](cohorts/2023/02-experiment-tracking/homework-wandb/preprocess_data.py) | Functions: `dump_pickle`, `read_dataframe`, `preprocess`, `run_data_prep` |
+| [`cohorts/2023/03-orchestration/prefect/3.3/orchestrate.py`](cohorts/2023/03-orchestration/prefect/3.3/orchestrate.py) | Functions: `read_data`, `add_features`, `train_best_model`, `main_flow` |
+| [`cohorts/2023/03-orchestration/prefect/3.3/orchestrate_pre_prefect.py`](cohorts/2023/03-orchestration/prefect/3.3/orchestrate_pre_prefect.py) | Functions: `read_data`, `add_features`, `train_best_model`, `main_flow` |
+| [`cohorts/2023/03-orchestration/prefect/3.4/orchestrate.py`](cohorts/2023/03-orchestration/prefect/3.4/orchestrate.py) | Functions: `read_data`, `add_features`, `train_best_model`, `main_flow` |
+| [`02-experiment-tracking/requirements.txt`](02-experiment-tracking/requirements.txt) | Implementation or supporting configuration |
+| [`05-monitoring/requirements.txt`](05-monitoring/requirements.txt) | Implementation or supporting configuration |
+| [`06-best-practices/code/infrastructure/main.tf`](06-best-practices/code/infrastructure/main.tf) | Terraform resource/module declarations |
+| [`06-best-practices/code/infrastructure/modules/ecr/main.tf`](06-best-practices/code/infrastructure/modules/ecr/main.tf) | Terraform resource/module declarations |
+| [`06-best-practices/code/infrastructure/modules/ecr/variables.tf`](06-best-practices/code/infrastructure/modules/ecr/variables.tf) | Terraform resource/module declarations |
+| [`06-best-practices/code/infrastructure/modules/kinesis/main.tf`](06-best-practices/code/infrastructure/modules/kinesis/main.tf) | Terraform resource/module declarations |
+| [`06-best-practices/code/infrastructure/modules/kinesis/variables.tf`](06-best-practices/code/infrastructure/modules/kinesis/variables.tf) | Terraform resource/module declarations |
+| [`05-monitoring/dummy_metrics_calculation.py`](05-monitoring/dummy_metrics_calculation.py) | Functions: `prep_db`, `calculate_dummy_metrics_postgresql`, `main` |
+| [`05-monitoring/evidently_metrics_calculation.py`](05-monitoring/evidently_metrics_calculation.py) | Functions: `prep_db`, `calculate_metrics_postgresql`, `batch_monitoring_backfill` |
+| [`03-orchestration/code/duration-prediction.py`](03-orchestration/code/duration-prediction.py) | Functions: `read_dataframe`, `create_X`, `train_model`, `run` |
+| [`04-deployment/batch/score.py`](04-deployment/batch/score.py) | Functions: `generate_uuids`, `read_dataframe`, `prepare_dictionaries`, `load_model`, `save_results`, `apply_model`, `get_paths` |
+| [`04-deployment/batch/score_backfill.py`](04-deployment/batch/score_backfill.py) | Functions: `ride_duration_prediction_backfill` |
+| [`04-deployment/batch/score_deploy.py`](04-deployment/batch/score_deploy.py) | Implementation or supporting configuration |
+
+### Local setup and verification
+
+From the repository root (the commands follow the checked-in manifests):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r 02-experiment-tracking/requirements.txt
+```
+
+<!-- project-guide:end -->
+
 <!-- repository-summary -->
 Course materials and exercises for productionizing machine learning services through training, deployment, orchestration, and monitoring.
 <!-- /repository-summary -->
